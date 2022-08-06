@@ -10,11 +10,11 @@ url = os.environ['url']
 VERSION='2018-05-01'
 
 
-authenticator = IAMAuthenticator(apikey)
+authenticator = IAMAuthenticator('ih32Mpf7HBORYkJW5hjWnN3-fLeaKWRvya8sScR1NnPh')
 language_translator = LanguageTranslatorV3(
     version=VERSION, authenticator=authenticator)
 
-language_translator.set_service_url(url)
+language_translator.set_service_url('https://api.us-south.language-translator.watson.cloud.ibm.com/instances/13796a83-0983-4a5e-85c6-c906c684c33e')
 
 
 def english_to_french(english_text):
@@ -23,8 +23,7 @@ def english_to_french(english_text):
     french_text = response['translations'][0]['translation']
 
     return french_text
-
-
+    
 def french_to_english(french_text):
     response = language_translator.translate(
         text=french_text, model_id='fr-en').get_result()
